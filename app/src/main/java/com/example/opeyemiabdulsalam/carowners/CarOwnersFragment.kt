@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.opeyemiabdulsalam.R
 import com.example.opeyemiabdulsalam.databinding.CarOwnersListBinding
 
@@ -15,10 +16,11 @@ import com.example.opeyemiabdulsalam.databinding.CarOwnersListBinding
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
 class CarOwnersFragment : Fragment() {
-
+    private val args: CarOwnersFragmentArgs by navArgs()
     private val viewModel: CarOwnerViewModel by lazy {
         ViewModelProviders.of(this).get(CarOwnerViewModel::class.java)
     }
+
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
@@ -27,11 +29,13 @@ class CarOwnersFragment : Fragment() {
         val binding = CarOwnersListBinding.inflate(inflater)
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
-
+        val adapter = CarOwnerAdapter()
+        binding.carOwnersList.adapter = adapter
         return  binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel.getCarOwners(args.filterValue)
     }
 }

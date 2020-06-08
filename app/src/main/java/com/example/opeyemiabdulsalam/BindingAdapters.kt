@@ -3,17 +3,24 @@ package com.example.opeyemiabdulsalam
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.opeyemiabdulsalam.carowners.CarOwnerAdapter
+import com.example.opeyemiabdulsalam.data.CarOwner
 import com.example.opeyemiabdulsalam.data.Filter
 import com.example.opeyemiabdulsalam.filterlist.FilterAdapter
 
-/**
- * When there is no Mars property data (data is null), hide the [RecyclerView], otherwise show it.
- */
 @BindingAdapter("listData")
 fun bindRecyclerView(recyclerView: RecyclerView, data: List<Filter>?) {
     val adapter = recyclerView.adapter as FilterAdapter
     adapter.submitList(data) {
         // scroll the list to the top after the diffs are calculated and posted
+        recyclerView.scrollToPosition(0)
+    }
+}
+
+@BindingAdapter("carOwnersData")
+fun bindCarRecyclerView(recyclerView: RecyclerView, data: List<CarOwner>?) {
+    val adapter = recyclerView.adapter as CarOwnerAdapter
+    adapter.submitList(data) {
         recyclerView.scrollToPosition(0)
     }
 }

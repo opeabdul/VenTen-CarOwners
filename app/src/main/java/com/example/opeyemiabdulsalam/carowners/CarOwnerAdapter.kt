@@ -4,11 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.opeyemiabdulsalam.data.CarOwner
 import com.example.opeyemiabdulsalam.databinding.ItemCarOwnerBinding
 
-class CarOwnerAdapter: PagedListAdapter<CarOwner, CarOwnerAdapter.CarOwnerViewHolder>(DiffCallBack()) {
+class CarOwnerAdapter: ListAdapter<CarOwner, CarOwnerAdapter.CarOwnerViewHolder>(DiffCallBack()) {
 
     class CarOwnerViewHolder(private val binding: ItemCarOwnerBinding): RecyclerView.ViewHolder(binding.root){
 
@@ -32,10 +33,7 @@ class CarOwnerAdapter: PagedListAdapter<CarOwner, CarOwnerAdapter.CarOwnerViewHo
     }
 
     override fun onBindViewHolder(holder: CarOwnerViewHolder, position: Int) {
-        val item = getItem(position)
-        item?.let {
-            holder.bind(it)
-        }
+        holder.bind(getItem(position))
     }
 }
 

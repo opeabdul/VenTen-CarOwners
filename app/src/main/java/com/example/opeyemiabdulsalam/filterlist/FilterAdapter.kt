@@ -14,8 +14,9 @@ class FilterAdapter (private val clickListener: FilterClickListener):
 
     class FilterViewHolder private constructor(val binding: ItemFilterBinding):
             RecyclerView.ViewHolder(binding.root){
-        fun bind(item: Filter){
+        fun bind(clickListener: FilterClickListener, item: Filter){
             binding.filter = item
+            binding.clickListener = clickListener
             binding.executePendingBindings()
         }
 
@@ -35,7 +36,7 @@ class FilterAdapter (private val clickListener: FilterClickListener):
 
     override fun onBindViewHolder(holder: FilterViewHolder, position: Int) {
         val item = getItem(position)
-        holder.bind(item)
+        holder.bind(clickListener, item)
     }
 }
 
