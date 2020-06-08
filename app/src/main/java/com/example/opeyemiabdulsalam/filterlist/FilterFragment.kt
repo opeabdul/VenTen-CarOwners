@@ -27,7 +27,7 @@ class FilterFragment : Fragment() {
         // Inflate the layout for this fragment
         val binding = FilterListBinding.inflate(inflater)
 
-        binding.setLifecycleOwner (this)
+        binding.lifecycleOwner = this
 
         binding.viewModel = viewModel
 

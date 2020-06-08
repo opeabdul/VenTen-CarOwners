@@ -7,7 +7,6 @@
             name="filter"
             type="com.example.opeyemiabdulsalam.data.Filter" />
     </data>
-
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -17,9 +16,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent">
+                android:padding="10dp">
 
                 <TextView
                     android:id="@+id/count"
