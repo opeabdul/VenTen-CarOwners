@@ -6,4 +6,5 @@
 
     <color name="app_white_shade">#ffeeeeee</color>
     <color name="divider">#80333382</color>
+    <color name="appBlue">#333382</color>
 </resources>
