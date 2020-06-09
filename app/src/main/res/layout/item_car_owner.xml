@@ -23,31 +23,12 @@
 
             <TextView
                 style="@style/header_style"
-                android:id="@+id/count"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@{@string/int_value(carOwner.id)}"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="1" />
-            <View
-                android:id="@+id/vertical_divider"
-                android:layout_width="0.5dp"
-                android:layout_height="0dp"
-                android:layout_marginStart="20dp"
-                android:background="@color/divider"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toEndOf="@id/count"
-                app:layout_constraintBottom_toTopOf="@id/top_divider" />
-
-            <TextView
-                style="@style/header_style"
                 android:id="@+id/first_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
+                android:textStyle="bold"
                 android:text="@{carOwner.firstName.trim()}"
-                app:layout_constraintStart_toEndOf="@id/vertical_divider"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Opeyemi" />
 
@@ -55,6 +36,7 @@
                 style="@style/header_style"
                 android:id="@+id/last_name"
                 android:layout_width="0dp"
+                android:textStyle="bold"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:text="@{carOwner.lastName.trim()}"
@@ -65,12 +47,12 @@
             <View
                 android:id="@+id/top_divider"
                 android:layout_width="0dp"
-                android:layout_height="0.5dp"
+                android:layout_height="0.7dp"
                 android:layout_marginTop="5dp"
                 android:background="@color/divider"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/count" />
+                app:layout_constraintTop_toBottomOf="@id/first_name" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/vertical_guideline"
@@ -218,8 +200,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:textStyle="bold"
+                android:fontFamily="@font/nunito_sans"
                 android:text="@string/bio_title"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/job_content" />
 

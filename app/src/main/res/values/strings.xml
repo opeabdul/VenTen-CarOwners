@@ -17,7 +17,7 @@
     <string name="car_color_title">Car Color:</string>
     <string name="gender_title">Gender:</string>
     <string name="job_title">Job Title:</string>
-    <string name="bio_title">Bio</string>
+    <string name="bio_title">Bio:</string>
     <string name="car_model_year_title">Car Year:</string>
     <string name="no_car_owner_match_the_filter">No car owner matches the filter.</string>
 </resources>
