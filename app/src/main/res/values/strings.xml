@@ -10,12 +10,14 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="filter_count">#%1$d</string>
+    <string name="int_value">%1$s</string>
     <string name="email_title">Email:</string>
     <string name="country_title">Country:</string>
     <string name="car_model_title">Car Model:</string>
     <string name="car_color_title">Car Color:</string>
     <string name="gender_title">Gender:</string>
     <string name="job_title">Job Title:</string>
-    <string name="bio_title">Bio:</string>
-    <string name="car_model_year_title">Car Model Year:</string>
+    <string name="bio_title">Bio</string>
+    <string name="car_model_year_title">Car Year:</string>
+    <string name="no_car_owner_match_the_filter">No car owner matches the filter.</string>
 </resources>

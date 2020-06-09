@@ -1,6 +1,8 @@
 package com.example.opeyemiabdulsalam
 
+import android.view.View
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.opeyemiabdulsalam.carowners.CarOwnerAdapter
@@ -23,6 +25,22 @@ fun bindCarRecyclerView(recyclerView: RecyclerView, data: List<CarOwner>?) {
     adapter.submitList(data) {
         recyclerView.scrollToPosition(0)
     }
+}
+
+@BindingAdapter("carEmptyState")
+fun showEmptyCarOwnersState(cardView: CardView, data: List<CarOwner>?){
+    cardView.visibility = when(data){
+        null -> View.GONE
+        else -> if(data.isEmpty()) View.VISIBLE else View.GONE
+    }
+}
+
+@BindingAdapter("barVisibility")
+fun showProgressbar(view: View, data: List<CarOwner>?){
+    if (data == null)
+        view.visibility = View.VISIBLE
+    else
+        view.visibility = View.GONE
 }
 
 @BindingAdapter("countText")

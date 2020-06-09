@@ -23,6 +23,7 @@ class FilterViewModel : ViewModel(){
     init {
         getFilters()
     }
+
     fun getFilters(){
         job?.cancel()
         job = viewModelScope.launch {

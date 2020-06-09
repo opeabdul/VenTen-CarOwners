@@ -22,29 +22,42 @@
             android:padding="10dp">
 
             <TextView
+                style="@style/header_style"
                 android:id="@+id/count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@{@string/int_value(carOwner.id)}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="1" />
+            <View
+                android:id="@+id/vertical_divider"
+                android:layout_width="0.5dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="20dp"
+                android:background="@color/divider"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@id/count"
+                app:layout_constraintBottom_toTopOf="@id/top_divider" />
 
             <TextView
+                style="@style/header_style"
                 android:id="@+id/first_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:text="@{carOwner.firstName}"
-                app:layout_constraintStart_toEndOf="@id/count"
+                android:layout_marginStart="20dp"
+                android:text="@{carOwner.firstName.trim()}"
+                app:layout_constraintStart_toEndOf="@id/vertical_divider"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Opeyemi" />
 
             <TextView
+                style="@style/header_style"
                 android:id="@+id/last_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:text="@{carOwner.lastName}"
+                android:text="@{carOwner.lastName.trim()}"
                 app:layout_constraintStart_toEndOf="@id/first_name"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Abdulsalam" />
@@ -53,8 +66,7 @@
                 android:id="@+id/top_divider"
                 android:layout_width="0dp"
                 android:layout_height="0.5dp"
-                android:layout_marginTop="20dip"
-                android:layout_marginEnd="16dip"
+                android:layout_marginTop="5dp"
                 android:background="@color/divider"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -72,7 +84,7 @@
                 android:id="@+id/email_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20.0dp"
+                android:layout_marginTop="5dp"
                 android:text="@string/email_title"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/top_divider" />
@@ -91,7 +103,7 @@
                 android:id="@+id/country_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20.0dp"
+                android:layout_marginTop="5dp"
                 android:text="@string/country_title"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/email_content" />
@@ -110,7 +122,7 @@
                 android:id="@+id/car_model_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20.0dp"
+                android:layout_marginTop="5dp"
                 android:text="@string/car_model_title"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/country_content" />
@@ -129,7 +141,7 @@
                 android:id="@+id/car_model_year_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20.0dp"
+                android:layout_marginTop="5dp"
                 android:text="@string/car_model_year_title"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/car_model_content" />
@@ -138,7 +150,7 @@
                 android:id="@+id/car_model_year_content"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@{carOwner.carModelYear}"
+                android:text="@{@string/int_value(carOwner.carModelYear)}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/vertical_guideline"
                 app:layout_constraintTop_toTopOf="@id/car_model_year_title"
@@ -148,7 +160,7 @@
                 android:id="@+id/car_color_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20.0dp"
+                android:layout_marginTop="5dp"
                 android:text="@string/car_color_title"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/car_model_year_content" />
@@ -157,6 +169,7 @@
                 android:id="@+id/car_color_content"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:text="@{carOwner.carColor}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/vertical_guideline"
                 app:layout_constraintTop_toTopOf="@id/car_color_title"
@@ -166,7 +179,7 @@
                 android:id="@+id/gender_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20.0dp"
+                android:layout_marginTop="10dp"
                 android:text="@string/gender_title"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/car_color_content" />
@@ -185,7 +198,7 @@
                 android:id="@+id/job_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20.0dp"
+                android:layout_marginTop="5dp"
                 android:text="@string/job_title"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/gender_content" />
@@ -204,10 +217,9 @@
                 android:id="@+id/bio_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20.0dip"
-                android:layout_marginBottom="20.0dip"
+                android:layout_marginTop="5dp"
+                android:textStyle="bold"
                 android:text="@string/bio_title"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/job_content" />
 
@@ -216,9 +228,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@{carOwner.bio}"
+                android:layout_marginTop="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/vertical_guideline"
-                app:layout_constraintTop_toTopOf="@id/bio_title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bio_title"
                 tools:text="Vestibulum ac est la nullam molestle nibi" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
