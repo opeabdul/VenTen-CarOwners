@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="carOwner"
+            type="com.example.opeyemiabdulsalam.data.CarOwner" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/card_radius"
+        app:cardUseCompatPadding="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+            <TextView
+                style="@style/header_style"
+                android:id="@+id/first_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="@{carOwner.firstName.trim()}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Opeyemi" />
+
+            <TextView
+                style="@style/header_style"
+                android:id="@+id/last_name"
+                android:layout_width="0dp"
+                android:textStyle="bold"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="@{carOwner.lastName.trim()}"
+                app:layout_constraintStart_toEndOf="@id/first_name"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Abdulsalam" />
+
+            <View
+                android:id="@+id/top_divider"
+                android:layout_width="0dp"
+                android:layout_height="0.7dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/divider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/first_name" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/vertical_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.3"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/email_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/email_title"
+                android:textColor="@color/appBlue"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/top_divider" />
+
+            <TextView
+                android:id="@+id/email_content"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{carOwner.email}"
+                android:textColor="@color/appBlue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/vertical_guideline"
+                app:layout_constraintTop_toTopOf="@id/email_title"
+                tools:text="opeyemi@gmail.com" />
+
+            <TextView
+                android:id="@+id/country_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/country_title"
+                android:textColor="@color/appBlue"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/email_content" />
+
+            <TextView
+                android:id="@+id/country_content"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{carOwner.country}"
+                android:textColor="@color/appBlue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/vertical_guideline"
+                app:layout_constraintTop_toTopOf="@id/country_title"
+                tools:text="Nigeria" />
+
+            <TextView
+                android:id="@+id/car_model_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/car_model_title"
+                android:textColor="@color/appBlue"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/country_content" />
+
+            <TextView
+                android:id="@+id/car_model_content"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{carOwner.carModel}"
+                android:textColor="@color/appBlue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/vertical_guideline"
+                app:layout_constraintTop_toTopOf="@id/car_model_title"
+                tools:text="Maybach" />
+
+            <TextView
+                android:id="@+id/car_model_year_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/car_model_year_title"
+                android:textColor="@color/appBlue"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/car_model_content" />
+
+            <TextView
+                android:id="@+id/car_model_year_content"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{@string/int_value(carOwner.carModelYear)}"
+                android:textColor="@color/appBlue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/vertical_guideline"
+                app:layout_constraintTop_toTopOf="@id/car_model_year_title"
+                tools:text="1995" />
+
+            <TextView
+                android:id="@+id/car_color_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/car_color_title"
+                android:textColor="@color/appBlue"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/car_model_year_content" />
+
+            <TextView
+                android:id="@+id/car_color_content"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{carOwner.carColor}"
+                android:textColor="@color/appBlue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/vertical_guideline"
+                app:layout_constraintTop_toTopOf="@id/car_color_title"
+                tools:text="Turquoise" />
+
+            <TextView
+                android:id="@+id/gender_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/gender_title"
+                android:textColor="@color/appBlue"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/car_color_content" />
+
+            <TextView
+                android:id="@+id/gender_content"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{carOwner.gender}"
+                android:textColor="@color/appBlue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/vertical_guideline"
+                app:layout_constraintTop_toTopOf="@id/gender_title"
+                tools:text="Female" />
+
+            <TextView
+                android:id="@+id/job_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/job_title"
+                android:textColor="@color/appBlue"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/gender_content" />
+
+            <TextView
+                android:id="@+id/job_content"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{carOwner.jobTitle}"
+                android:textColor="@color/appBlue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/vertical_guideline"
+                app:layout_constraintTop_toTopOf="@id/job_title"
+                tools:text="Actuary" />
+
+            <TextView
+                android:id="@+id/bio_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/nunito_sans"
+                android:text="@string/bio_title"
+                android:textColor="@color/appBlue"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/job_content" />
+
+            <TextView
+                android:id="@+id/bio_content"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@{carOwner.bio}"
+                android:textColor="@color/appBlue"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bio_title"
+                tools:text="Vestibulum ac est la nullam molestle nibi" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

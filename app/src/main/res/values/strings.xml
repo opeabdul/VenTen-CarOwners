@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Opeyemi Abdulsalam</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">Filters</string>
+    <string name="second_fragment_label">Car Owners</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="filter_count">#%1$d</string>
+    <string name="int_value">%1$s</string>
+    <string name="email_title">Email:</string>
+    <string name="country_title">Country:</string>
+    <string name="car_model_title">Car Model:</string>
+    <string name="car_color_title">Car Color:</string>
+    <string name="gender_title">Gender:</string>
+    <string name="job_title">Job Title:</string>
+    <string name="bio_title">Bio:</string>
+    <string name="car_model_year_title">Car Year:</string>
+    <string name="no_car_owner_match_the_filter">No car owner matches the filter.</string>
+    <string name="no_csv_file_supplied">No CSV file found on device. Kindly save a file to filter from.</string>
+    <string name="no_filter_item">No filter item.</string>
+</resources>
