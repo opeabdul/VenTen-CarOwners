@@ -13,6 +13,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.BufferedReader
+import java.io.FileNotFoundException
 import java.io.IOException
 import java.io.InputStreamReader
 
@@ -20,13 +21,16 @@ class CarOwnerViewModel(application: Application, private val filter: Filter) :
     AndroidViewModel(application) {
 
     private var job: Job? = null
-
-    private val _carOwnersList = MutableLiveData<List<CarOwner>>()
-
     private var carOwners = ArrayList<CarOwner>()
 
+    private val _carOwnersList = MutableLiveData<List<CarOwner>>()
     val carOwnersList: LiveData<List<CarOwner>>
         get() = _carOwnersList
+
+    private var _showSnackbarEvent = MutableLiveData<Boolean?>()
+    val showSnackBarEvent: LiveData<Boolean?>
+        get() = _showSnackbarEvent
+
 
     init {
         job = viewModelScope.launch {
@@ -37,13 +41,17 @@ class CarOwnerViewModel(application: Application, private val filter: Filter) :
     suspend fun getCarOwners() {
         withContext(Dispatchers.IO) {
             try {
-                carOwners =
-                    readDataFromRaw(getApplication<Application>().resources.openRawResource(R.raw.car_data))
+                carOwners = readDataFromRaw()
                 _carOwnersList.postValue(filterCarOwners(filter, carOwners))
             } catch (e: IOException) {
-                _carOwnersList.value = listOf()
+                _carOwnersList.postValue(listOf())
+                _showSnackbarEvent.postValue(true)
             }
         }
+    }
+
+    fun doneShowingSnackbar() {
+        _showSnackbarEvent.value = null
     }
 }
 

@@ -2,8 +2,8 @@
     <string name="app_name">Opeyemi Abdulsalam</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
+    <string name="first_fragment_label">Filters</string>
+    <string name="second_fragment_label">Car Owners</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
@@ -20,4 +20,6 @@
     <string name="bio_title">Bio:</string>
     <string name="car_model_year_title">Car Year:</string>
     <string name="no_car_owner_match_the_filter">No car owner matches the filter.</string>
+    <string name="no_csv_file_supplied">No CSV file found on device. Kindly save a file to filter from.</string>
+    <string name="no_filter_item">No filter item.</string>
 </resources>

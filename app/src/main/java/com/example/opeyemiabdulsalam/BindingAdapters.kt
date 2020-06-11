@@ -5,6 +5,7 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.opeyemiabdulsalam.carowners.CarOwnerAdapter
 import com.example.opeyemiabdulsalam.data.CarOwner
 import com.example.opeyemiabdulsalam.data.Filter
@@ -28,7 +29,7 @@ fun bindCarRecyclerView(recyclerView: RecyclerView, data: List<CarOwner>?) {
 }
 
 @BindingAdapter("carEmptyState")
-fun showEmptyCarOwnersState(cardView: CardView, data: List<CarOwner>?){
+fun showEmptyCarOwnersState(cardView: CardView, data: List<Any>?){
     cardView.visibility = when(data){
         null -> View.GONE
         else -> if(data.isEmpty()) View.VISIBLE else View.GONE
@@ -36,7 +37,7 @@ fun showEmptyCarOwnersState(cardView: CardView, data: List<CarOwner>?){
 }
 
 @BindingAdapter("barVisibility")
-fun showProgressbar(view: View, data: List<CarOwner>?){
+fun showProgressbar(view: View, data: List<Any>?){
     if (data == null)
         view.visibility = View.VISIBLE
     else
@@ -62,5 +63,12 @@ fun bindList(textView: TextView, textList: List<String>){
     textView.text = when(value){
         "" -> "Not available"
         else -> value.trim()
+    }
+}
+
+@BindingAdapter("refreshing")
+fun setRefreshing(swipeRefreshLayout: SwipeRefreshLayout, data: List<Filter>?){
+    if(data != null){
+        swipeRefreshLayout.isRefreshing = false
     }
 }

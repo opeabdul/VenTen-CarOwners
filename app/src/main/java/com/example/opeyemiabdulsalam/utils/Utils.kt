@@ -3,13 +3,12 @@ package com.example.opeyemiabdulsalam.utils
 import android.util.Log
 import com.example.opeyemiabdulsalam.data.CarOwner
 import com.example.opeyemiabdulsalam.data.Filter
-import java.io.BufferedReader
-import java.io.IOException
-import java.io.InputStream
-import java.io.InputStreamReader
+import java.io.*
 
+private const val TAG = "Utils"
 private const val DEFAULT_SEPARATOR = ','
 private const val DEFAULT_QUOTE = '"'
+private const val FILE_PATH = "/storage/emulated/0/Venten/car_owners_data.csv"
 
 fun filterCarOwners(filter: Filter, carOwners: List<CarOwner>): List<CarOwner> {
 
@@ -48,10 +47,12 @@ fun filterCarOwners(filter: Filter, carOwners: List<CarOwner>): List<CarOwner> {
     }
 }
 
-fun readDataFromRaw(inputStream: InputStream): ArrayList<CarOwner> {
+fun readDataFromRaw(): ArrayList<CarOwner> {
     val carOwners = ArrayList<CarOwner>()
-    val bufferedReader = BufferedReader(InputStreamReader(inputStream))
     try {
+        val file = File(FILE_PATH)
+        val reader = FileReader(file)
+        val bufferedReader = BufferedReader(reader)
         var line: String?
         bufferedReader.readLine() //Step over the header
         line = bufferedReader.readLine()
@@ -76,7 +77,7 @@ fun readDataFromRaw(inputStream: InputStream): ArrayList<CarOwner> {
             line = bufferedReader.readLine()
         }
     } catch (e: IOException) {
-        Log.e("Utils", e.message, e)
+        Log.e(TAG, e.message, e)
         throw e
     }
     return carOwners

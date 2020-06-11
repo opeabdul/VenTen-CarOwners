@@ -52,6 +52,8 @@ dependencies {
         coroutinesVersion = '1.2.1'
         version_moshi = "1.8.0"
         version_retrofit_coroutines_adapter = "0.9.2"
+        dexter_version = "5.0.0"
+        swipe_refresh_version = "1.0.0"
     }
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -85,7 +87,11 @@ dependencies {
     implementation "com.squareup.moshi:moshi:$version_moshi"
     implementation "com.squareup.moshi:moshi-kotlin:$version_moshi"
 
+    //Dexter
+    implementation "com.karumi:dexter:$dexter_version"
 
+    //Swiperefreshlayout
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:$swipe_refresh_version"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
