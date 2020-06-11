@@ -1,10 +1,12 @@
 package com.example.opeyemiabdulsalam.filterlist
 
 import android.Manifest
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
@@ -54,7 +56,12 @@ class FilterFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
                         permission: PermissionRequest?,
                         token: PermissionToken?
                     ) {
-                        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                        AlertDialog.Builder(requireContext())
+                            .setMessage("Storage access is needed so the file to be filtered " +
+                                    " be accessed. Kindly click on allow.")
+                            .setPositiveButton("Ok", null)
+                            .show()
+                        token?.continuePermissionRequest()
                     }
 
                     override fun onPermissionDenied(response: PermissionDeniedResponse?) {
@@ -77,4 +84,5 @@ class FilterFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
     override fun onRefresh(){
         viewModel.getFilters()
     }
+
 }
